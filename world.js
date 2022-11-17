@@ -10,8 +10,9 @@ document.addEventListener("DOMContentLoaded", function(){
         fetch(`http://localhost/comp2245-assignment5/world.php?country=${value}`)
         .then(response => response.text())
         .then(data => {
-            // let result = document.querySelector("#result");
-            // result.innerHTML = data;
+            let result = document.querySelector("#result");
+
+            result.innerHTML = data;
         })
         .catch(error => {
 
