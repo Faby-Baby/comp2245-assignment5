@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function(){
-    let btn = document.querySelector("#lookup");
+    let btn1 = document.querySelector("#lookup");
+    let btn2 = document.querySelector("#city");
 
-    btn.addEventListener("click", function(event) {
+    btn1.addEventListener("click", function(event) {
         event.preventDefault();
 
         let value = document.querySelector("#country").value;
-        console.log(value);
-
+        
         fetch(`http://localhost/comp2245-assignment5/world.php?country=${value}`)
         .then(response => response.text())
         .then(data => {
@@ -17,5 +17,25 @@ document.addEventListener("DOMContentLoaded", function(){
         .catch(error => {
 
         })
+    });
+
+    btn2.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        let value = document.querySelector("#country").value;
+
+        fetch(`http://localhost/comp2245-assignment5/world.php?country=${value}&lookup=cities`)
+        .then(response => response.text())
+        .then(data => {
+            console.log(data);
+            let result = document.querySelector("#result");
+
+            result.innerHTML = data;
+        })
+        .catch(error => {
+
+        })
     })
+
+
 })
